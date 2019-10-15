@@ -21,7 +21,7 @@ use InvalidArgumentException;
  * Inflector - This defines standard rules which is good for most projects, and is not considered complete. You
  * can add custom rules for missing words that you need.
  *
- * Inflections have been ported from Rubyonrails
+ * Inflection singular/plural rules have been ported from Rubyonrails
  * @see https://github.com/rails/rails
  */
 class Inflector
@@ -103,12 +103,13 @@ class Inflector
      * @var array
      */
     protected static $irregular = [
-        'person' => 'people',
-        'man' => 'men',
         'child' => 'children',
-        'sex' => 'sexes',
-        'move' => 'moves',
-        'zombie' => 'zombies'
+        'criterion' => 'criteria',
+        'man' => 'men',
+        'money' => 'monies',
+        'niche' => 'niches',
+        'person' => 'people',
+        'sex' => 'sexes'
     ];
 
     /**
@@ -117,7 +118,12 @@ class Inflector
     * @var array
     */
     protected static $uncountable = [
-        'equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep', 'jeans', 'police'
+        'equipment',
+        'information',
+        'research',
+        'series',
+        'news',
+        'weather'
     ];
 
     /**
@@ -135,10 +141,12 @@ class Inflector
         if (isset(self::$irregular[$singular])) {
             return self::$cache['plural'][$singular] = self::$irregular[$singular];
         }
-
-        if ($key = array_search($singular, self::$uncountable)) {
+  
+        $key = array_search($singular, self::$uncountable);
+        if ($key !== false) {
             return self::$cache['plural'][$singular] = self::$uncountable[$key];
         }
+     
         // always finds since last rule just adds an s
         foreach (self::$plural as $pattern => $replacement) {
             if (preg_match($pattern, $singular)) {
@@ -161,11 +169,13 @@ class Inflector
             return self::$cache['singular'][$plural];
         }
 
-        if ($key = array_search($plural, self::$irregular)) {
+        $key = array_search($plural, self::$irregular);
+        if ($key !== false) {
             return self::$cache['singular'][$plural] = $key;
         }
-
-        if ($key = array_search($plural, self::$uncountable)) {
+    
+        $key = array_search($plural, self::$uncountable);
+        if ($key !== false) {
             return self::$cache['singular'][$plural] = self::$uncountable[$key];
         }
 

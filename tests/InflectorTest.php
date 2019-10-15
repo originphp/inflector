@@ -68,8 +68,8 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
 
     public function testUncountable()
     {
-        $this->assertEquals('sheep', Inflector::singular('sheep'));
-        $this->assertEquals('sheep', Inflector::plural('sheep'));
+        $this->assertEquals('equipment', Inflector::singular('equipment'));
+        $this->assertEquals('equipment', Inflector::plural('equipment'));
     }
 
     public function testStudlyCaps()
@@ -141,7 +141,7 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('apples', Inflector::plural('apple'));
         $this->assertEquals('apple', Inflector::singular('apples'));
         $this->assertEquals('child', Inflector::singular('children'));
-        $this->assertEquals('sheep', Inflector::singular('sheep'));
+        $this->assertEquals('equipment', Inflector::singular('equipment'));
         $this->assertEquals('CamelCase', Inflector::studlyCaps('camel_case'));
         $this->assertEquals('contacts', Inflector::underscored('Contacts'));
         $this->assertEquals('contacts', Inflector::tableName('Contact'));
