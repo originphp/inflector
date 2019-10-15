@@ -37,18 +37,22 @@ In your bootstrap/configuration
 ```php
 use Origin\Inflector\Inflector;
 
+// regex or string
 Inflector::rules('singular',[
     '/(quiz)zes$/i' => '\\1'
     ]);
 
+// regex or string
 Inflector::rules('plural',[
     '/(quiz)$/i' => '\1zes'
     ]);
 
+// string only
 Inflector::rules('uncountable',[
     'money' => 'money'
     ]);
 
+// string only
 Inflector::rules('irregular',[
     'child' => 'children'
     ]);
@@ -64,7 +68,6 @@ use Origin\Inflector\Inflector;
 Inflector::rules('singular',['fezzes'=>'fez']);
 Inflector::rules('plural',['fez'=>'fezzes']);
 ```
-
 
 ## Changing Cases
 
