@@ -1,5 +1,4 @@
 <?php
-declare(strict_types = 1);
 /**
  * OriginPHP Framework
  * Copyright 2018 - 2019 Jamiel Sharief.
@@ -12,7 +11,7 @@ declare(strict_types = 1);
  * @link        https://www.originphp.com
  * @license     https://opensource.org/licenses/mit-license.php MIT License
  */
-
+declare(strict_types = 1);
 namespace Origin\Inflector;
 
 use InvalidArgumentException;
@@ -21,7 +20,7 @@ use InvalidArgumentException;
  * Inflector - This defines standard rules which is good for most projects, and is not considered complete. You
  * can add custom rules for missing words that you need.
  *
- * Inflection singular/plural rules have been ported from Rubyonrails
+ * Inflection singular/plural rules have been ported from Ruby on Rails
  * @see https://github.com/rails/rails
  */
 class Inflector
