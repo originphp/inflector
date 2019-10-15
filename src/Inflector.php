@@ -139,12 +139,14 @@ class Inflector
         if ($key = array_search($singular, self::$uncountable)) {
             return self::$cache['plural'][$singular] = self::$uncountable[$key];
         }
-
+        // always finds since last rule just adds an s
         foreach (self::$plural as $pattern => $replacement) {
             if (preg_match($pattern, $singular)) {
-                return self::$cache['plural'][$singular] = preg_replace($pattern, $replacement, $singular);
+                self::$cache['plural'][$singular] = preg_replace($pattern, $replacement, $singular);
+                break;
             }
         }
+        return self::$cache['plural'][$singular];
     }
 
     /**
