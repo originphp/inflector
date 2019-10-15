@@ -29,7 +29,6 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('backslashes', Inflector::plural('backslash'));
         $this->assertEquals('mailboxes', Inflector::plural('mailbox'));
         $this->assertEquals('responses', Inflector::plural('response'));
-        $this->assertEquals('', Inflector::plural(''));
 
         // Test fit
         $this->assertEquals('statuses', Inflector::plural('status'));

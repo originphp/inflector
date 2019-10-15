@@ -59,8 +59,7 @@ class Inflector
         '/(octop|vir)us$/i' => '\\1i',
         '/^(ax|test)is$/i' => '\\1es',
         '/s$/' => 's',
-        '/^$/' => '',
-        '/$/' => 's',
+        '/$/' => 's', # important
     ];
 
     /**
@@ -146,8 +145,6 @@ class Inflector
                 return self::$cache['plural'][$singular] = preg_replace($pattern, $replacement, $singular);
             }
         }
-
-        return $singular;
     }
 
     /**
