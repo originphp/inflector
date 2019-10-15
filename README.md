@@ -48,9 +48,7 @@ Inflector::rules('plural',[
     ]);
 
 // string only
-Inflector::rules('uncountable',[
-    'money' => 'money'
-    ]);
+Inflector::rules('uncountable',['sheep']);
 
 // string only
 Inflector::rules('irregular',[
