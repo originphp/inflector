@@ -1,0 +1,40 @@
+{
+    "name": "originphp/inflector",
+    "description": "OriginPHP Inflector",
+    "type": "library",
+    "keywords": [
+        "originphp",
+        "inflector",
+        "camel case",
+        "camelcase",
+        "studly caps",
+        "underscore",
+        "singular",
+        "plural",
+        "inflection"
+    ],
+    "homepage": "https://www.originphp.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jamiel Sharief",
+            "email": "js@originphp.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Origin\\Inflector\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Origin\\Test\\Inflector\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    }
+}
