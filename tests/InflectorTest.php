@@ -17,10 +17,6 @@ namespace Origin\Test\Inflector;
 use InvalidArgumentException;
 use Origin\Inflector\Inflector;
 
-class MockInflector extends Inflector
-{
-}
-
 class InflectorTest extends \PHPUnit\Framework\TestCase
 {
     public function testPlural()
@@ -82,6 +78,7 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('CamelCase', Inflector::studlyCaps('camel_case'));
     }
 
+    
     public function testUnderscored()
     {
         $this->assertEquals('contacts', Inflector::underscored('Contacts'));
@@ -138,5 +135,19 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
 
         $this->expectException(InvalidArgumentException::class);
         Inflector::rules('foo', ['foo'=>'bar']);
+    }
+
+    public function testCachedVersions()
+    {
+        $this->assertEquals('apples', Inflector::plural('apple'));
+        $this->assertEquals('apple', Inflector::singular('apples'));
+        $this->assertEquals('child', Inflector::singular('children'));
+        $this->assertEquals('sheep', Inflector::singular('sheep'));
+        $this->assertEquals('CamelCase', Inflector::studlyCaps('camel_case'));
+        $this->assertEquals('contacts', Inflector::underscored('Contacts'));
+        $this->assertEquals('contacts', Inflector::tableName('Contact'));
+        $this->assertEquals('camelCase', Inflector::camelCase('camel_case'));
+        $this->assertEquals('Contact Manager', Inflector::human('contact_manager'));
+        $this->assertEquals('Contact', Inflector::className('contacts'));
     }
 }
