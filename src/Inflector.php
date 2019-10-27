@@ -20,7 +20,7 @@ use InvalidArgumentException;
  * Inflector - This defines standard rules which is good for most projects, and is not considered complete. You
  * can add custom rules for missing words that you need.
  *
- * Inflection singular/plural rules have been ported from Ruby on Rails
+ * Inflection singular & plural rules are from the Ruby on Rails framework.
  * @see https://github.com/rails/rails
  */
 class Inflector
