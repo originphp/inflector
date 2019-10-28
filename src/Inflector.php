@@ -283,7 +283,6 @@ class Inflector
     /**
      * Add user defined rules for the inflector.
      *
-     *
      * Inflector::rules('singular',[
      *    '/(quiz)zes$/i' => '\\1' // regex or string
      *    ]);
@@ -303,6 +302,7 @@ class Inflector
      * are string only.
      *
      *   A regex pattern [regexFindPattern => regexReplacementPattern] e.g ['/(quiz)$/i' => '\1zes']
+     *
      * @return void
      */
     public static function rules(string $type, array $rules) : void
