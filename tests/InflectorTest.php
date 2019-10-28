@@ -77,7 +77,6 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('CamelCase', Inflector::studlyCaps('camel_case'));
     }
 
-    
     public function testUnderscored()
     {
         $this->assertEquals('contacts', Inflector::underscored('Contacts'));
@@ -116,8 +115,6 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
         Inflector::rules('singular', ['/^(f)ezzes$/i' => '\1ez']);
         $this->assertEquals('fez', Inflector::singular('fezzes'));
 
-
-
         print_r(preg_replace('/^abc$/i', '123', 'abc'));
    
         Inflector::rules('singular', ['abc' => '123']);
@@ -129,11 +126,11 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
         Inflector::rules('uncountable', ['foos']);
         $this->assertEquals('foos', Inflector::singular('foos'));
 
-        Inflector::rules('irregular', ['bars'=>'bars']);
+        Inflector::rules('irregular', ['bars' => 'bars']);
         $this->assertEquals('bars', Inflector::singular('bars'));
 
         $this->expectException(InvalidArgumentException::class);
-        Inflector::rules('foo', ['foo'=>'bar']);
+        Inflector::rules('foo', ['foo' => 'bar']);
     }
 
     public function testCachedVersions()

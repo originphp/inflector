@@ -93,7 +93,7 @@ class Inflector
         '/([ti])a$/i' => '\1um',
         '/(n)ews$/i' => '\1ews',
         '/(ss)$/i' => '\1',
-         '/s$/i' => '',
+        '/s$/i' => '',
     ];
 
     /**
@@ -153,6 +153,7 @@ class Inflector
                 break;
             }
         }
+
         return self::$cache['plural'][$singular];
     }
 
@@ -244,6 +245,7 @@ class Inflector
         if (isset(self::$cache['tableName'][$studlyCasedWord])) {
             return self::$cache['tableName'][$studlyCasedWord];
         }
+
         return self::$cache['tableName'][$studlyCasedWord] = self::plural(self::underscored($studlyCasedWord));
     }
 
@@ -258,6 +260,7 @@ class Inflector
         if (isset(self::$cache['className'][$table])) {
             return self::$cache['className'][$table];
         }
+
         return self::$cache['className'][$table] = self::studlyCaps(Inflector::singular($table));
     }
 
@@ -272,6 +275,7 @@ class Inflector
         if (isset(self::$cache['human'][$underscoredWord])) {
             return self::$cache['human'][$underscoredWord];
         }
+
         return self::$cache['human'][$underscoredWord] = ucwords(str_replace('_', ' ', $underscoredWord));
     }
 
@@ -287,7 +291,7 @@ class Inflector
      */
     public static function rules(string $type, array $rules) : void
     {
-        if (!in_array($type, ['singular','plural','irregular','uncountable'])) {
+        if (! in_array($type, ['singular','plural','irregular','uncountable'])) {
             throw new InvalidArgumentException(sprintf('Invalid rule type %s', $type));
         }
         foreach ($rules as $find => $replace) {
