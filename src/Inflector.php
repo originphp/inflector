@@ -17,11 +17,8 @@ namespace Origin\Inflector;
 use InvalidArgumentException;
 
 /**
- * Inflector - This defines standard rules which is good for most projects, and is not considered complete. You
- * can add custom rules for missing words that you need.
- *
- * Inflection singular & plural rules are from the Ruby on Rails framework.
- * @see https://github.com/rails/rails
+ * Inflector - The inflector defines standard rules which is suitable for most projects, but is not considered nor intented to be
+ * complete. You can add custom rules for any words that might not be picked up.
  */
 class Inflector
 {
@@ -30,14 +27,16 @@ class Inflector
      *
      * @var array
      */
-    protected static $cache = [];
+    private static $cache = [];
 
     /**
      * Inflector plural rules
      *
+     * These rules have been ported from the Ruby On Rails Framework.
+     *
      * @var array
      */
-    protected static $plural = [
+    private static $plural = [
         '/(quiz)$/i' => '\1zes',
         '/^(oxen)$/i' => '\1',
         '/^(ox)$/i' => '\1en',
@@ -64,9 +63,11 @@ class Inflector
     /**
      * Inflector singular rules
      *
+     * These rules have been ported from the Ruby On Rails Framework.
+     *
      * @var array
      */
-    protected static $singular = [
+    private static $singular = [
         '/(database)s$/i' => '\1',
         '/(quiz)zes$/i' => '\1',
         '/(matr)ices$/i' => '\1ix',
@@ -101,7 +102,7 @@ class Inflector
      *
      * @var array
      */
-    protected static $irregular = [
+    private static $irregular = [
         'child' => 'children',
         'criterion' => 'criteria',
         'man' => 'men',
@@ -116,7 +117,7 @@ class Inflector
     *
     * @var array
     */
-    protected static $uncountable = [
+    private static $uncountable = [
         'equipment',
         'information',
         'research',
@@ -282,11 +283,26 @@ class Inflector
     /**
      * Add user defined rules for the inflector.
      *
-     * Inflector::rules('singular',['/(quiz)zes$/i' => '\\1']);
-     * Inflector::rules('plural',['/(quiz)$/i' => '\1zes']);
+     *
+     * Inflector::rules('singular',[
+     *    '/(quiz)zes$/i' => '\\1' // regex or string
+     *    ]);
+     *
+     * Inflector::rules('plural',[
+     *    '/(quiz)$/i' => '\1zes' // regex or string
+     *    ]);
+     *
+     * Inflector::rules('uncountable',['sheep']); // string only
+     *
+     * Inflector::rules('irregular',[
+     *    'child' => 'children' // string only
+     *    ]);
      *
      * @param string $type  singular, plural, irregular, uncountable
-     * @param array  $rules [regexFindPattern => regexReplacementPattern] e.g ['/(quiz)$/i' => '\1zes']
+     * @param array  $rules Singular and plural accept both regex patterns and strings, whilst irregular and uncountable
+     * are string only.
+     *
+     *   A regex pattern [regexFindPattern => regexReplacementPattern] e.g ['/(quiz)$/i' => '\1zes']
      * @return void
      */
     public static function rules(string $type, array $rules) : void
