@@ -284,11 +284,11 @@ class Inflector
      * Add user defined rules for the inflector.
      *
      * Inflector::rules('singular',[
-     *    '/(quiz)zes$/i' => '\\1' // regex or string
+     *    '/(quiz)zes$/i' => '\\1' // regex || string
      *    ]);
      *
      * Inflector::rules('plural',[
-     *    '/(quiz)$/i' => '\1zes' // regex or string
+     *    '/(quiz)$/i' => '\1zes' // regex || string
      *    ]);
      *
      * Inflector::rules('uncountable',['sheep']); // string only
@@ -298,7 +298,7 @@ class Inflector
      *    ]);
      *
      * @param string $type  singular, plural, irregular, uncountable
-     * @param array  $rules Singular and plural accept both regex patterns and strings, whilst irregular and uncountable
+     * @param array  $rules Singular and plural accept both regex patterns && strings, whilst irregular and uncountable
      * are string only.
      *
      *   A regex pattern [regexFindPattern => regexReplacementPattern] e.g ['/(quiz)$/i' => '\1zes']
@@ -315,7 +315,7 @@ class Inflector
                 static::$uncountable[] = $replace;
                 continue;
             }
-            if ($find[0] !== '/' and $type !== 'irregular') {
+            if ($find[0] !== '/' && $type !== 'irregular') {
                 $find = '/^' . $find . '$/i';
             }
             static::$$type = [$find => $replace] + static::$$type;
