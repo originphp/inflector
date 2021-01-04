@@ -114,8 +114,6 @@ class InflectorTest extends \PHPUnit\Framework\TestCase
     {
         Inflector::rules('singular', ['/^(f)ezzes$/i' => '\1ez']);
         $this->assertEquals('fez', Inflector::singular('fezzes'));
-
-        print_r(preg_replace('/^abc$/i', '123', 'abc'));
    
         Inflector::rules('singular', ['abc' => '123']);
         $this->assertEquals('123', Inflector::singular('abc'));
