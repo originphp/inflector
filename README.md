@@ -40,12 +40,12 @@ use Origin\Inflector\Inflector;
 // regex or string
 Inflector::rules('singular',[
     '/(quiz)zes$/i' => '\\1'
-    ]);
+]);
 
 // regex or string
 Inflector::rules('plural',[
     '/(quiz)$/i' => '\1zes'
-    ]);
+]);
 
 // string only
 Inflector::rules('uncountable',['sheep']);
@@ -53,8 +53,7 @@ Inflector::rules('uncountable',['sheep']);
 // string only
 Inflector::rules('irregular',[
     'child' => 'children'
-    ]);
-
+]);
 ```
 
 Singular and plural rules can be both strings or regex expressions
@@ -81,7 +80,6 @@ $human = Inflector::human('big_tree'); // Big Tree
 
 // Change studly capped words
 $underscored = Inflector::underscored('BigTree'); // big_tree
-
 ```
 
 The Inflector also has these two methods which OriginPHP also uses to do its magic.
