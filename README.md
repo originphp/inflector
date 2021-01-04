@@ -1,7 +1,7 @@
 # Inflector
 
 ![license](https://img.shields.io/badge/license-MIT-brightGreen.svg)
-[![build](https://travis-ci.org/originphp/inflector.svg?branch=master)](https://travis-ci.org/originphp/inflector)
+[![build](https://github.com/originphp/inflector/workflows/CI/badge.svg)](https://github.com/originphp/inflector/actions)
 [![coverage](https://coveralls.io/repos/github/originphp/inflector/badge.svg?branch=master)](https://coveralls.io/github/originphp/inflector?branch=master)
 
 The Inflector class changes words from singular to plural or vice versa, and it also changes cases of words as well.
